@@ -40,3 +40,8 @@ jobs:
         files: SmartDesktopOrganizer_macOS.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SmartDesktopOrganizer_macOS
+        path: SmartDesktopOrganizer_macOS.zip
