@@ -33,6 +33,12 @@ jobs:
         cd dist
         zip -r "../SmartDesktopOrganizer_macOS.zip" "Smart Desktop Organizer Pro.app"
 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SmartDesktopOrganizer_macOS
+        path: SmartDesktopOrganizer_macOS.zip
+
     - name: Upload macOS Zip to Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
@@ -40,8 +46,3 @@ jobs:
         files: SmartDesktopOrganizer_macOS.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: SmartDesktopOrganizer_macOS
-        path: SmartDesktopOrganizer_macOS.zip
