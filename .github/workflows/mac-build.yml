@@ -2,9 +2,6 @@ name: Build macOS App
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v*'
 
 jobs:
   build-mac:
@@ -38,11 +35,3 @@ jobs:
       with:
         name: SmartDesktopOrganizer_macOS
         path: SmartDesktopOrganizer_macOS.zip
-
-    - name: Upload macOS Zip to Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: SmartDesktopOrganizer_macOS.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
